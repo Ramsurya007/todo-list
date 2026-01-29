@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{%block title%}Home{%endblock%}
+{%block content%}
+<h1>{{ page_title }}</h1>
+
+<div class="todo-container">
+    {% if todos %}
+    <div class="todo-list">
+        {% for todo in todos %}
+        <div class="todo-item {% if todo.is_completed %}completed{% endif %}">
+            <div class="todo-content">
+                <h3>{{ todo.title }}</h3>
+                <p>{{ todo.description }}</p>
+                <small>Created: {{ todo.created_at|date:"M d, Y" }}</small>
+            </div>
+            <div class="todo-actions">
+                {% if is_recycle_bin %}
+                <a href="{% url 'restore_todo' todo.id %}" class="btn btn-restore">Restore</a>
+                <a href="{% url 'permanently_delete_todo' todo.id %}" class="btn btn-delete"
+                    onclick="return confirm('Are you sure you want to permanently delete this?')">Delete Permanently</a>
+                {% else %}
+                <a href="{% url 'toggle_complete' todo.id %}" class="btn btn-complete">
+                    {% if todo.is_completed %}Mark Incomplete{% else %}Mark Complete{% endif %}
+                </a>
+                <a href="{% url 'update_todo' todo.id %}" class="btn btn-edit">Edit</a>
+                <a href="{% url 'delete_todo' todo.id %}" class="btn btn-delete">Delete</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+        <p>No todos found here.</p>
+        {% if not is_recycle_bin %}
+        <a href="{% url 'add_todo' %}" class="btn btn-primary">Add a Todo</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{%endblock%}

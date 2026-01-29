@@ -1,0 +1,27 @@
+<nav>
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'add_todo' %}">Add Todo</a></li>
+        <li><a href="{% url 'completed_todos' %}">Complete Todo</a></li>
+        <li><a href="{% url 'incomplete_todos' %}">Incomplete Todo</a></li>
+        <li><a href="{% url 'deleted_todos' %}">Deleted Todo</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="{%url 'user_login'%}">Login</a></li>
+        <li><a href="{%url 'user_register'%}">Register</a></li>
+        {%if request.session.user_id %}
+        <li style="position: relative;">
+            <img src="{{ user.user_image.url }}" alt="Profile"
+                style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer;" onclick="toggleProfile()">
+            <div id="profile-dropdown"
+                style="display: none; position: absolute; right: 0; background-color: #333; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; padding: 10px; border-radius: 5px; text-align: left;">
+                <p style="margin: 5px 0; color: white;"><strong>{{ user.username }}</strong></p>
+                <p style="margin: 5px 0; font-size: 0.8em; color: #ccc;">{{ user.email }}</p>
+                <hr style="border-color: #555; margin: 5px 0;">
+                <a href="{% url 'user_logout' %}"
+                    style="color: #ff6b6b; text-decoration: none; display: block;">Logout</a>
+            </div>
+        </li>
+        {%endif%}
+
+    </ul>
+</nav>

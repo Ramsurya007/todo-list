@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+{%block title%}Add Todo{%endblock%}
+{%block content%}
+<h1>{% if is_edit %}Edit Todo{% else %}Add Todo{% endif %}</h1>
+<form action="" method="post">
+    {%csrf_token%}
+    <input type="text" name="title" placeholder="Title" value="{{ todo.title|default:'' }}" required>
+    <textarea name="description" placeholder="Description" rows="4"
+        required>{{ todo.description|default:'' }}</textarea>
+    <input type="submit" value="{% if is_edit %}Update{% else %}Add{% endif %}">
+</form>
+{%endblock%}

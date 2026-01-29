@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+{%block title%}User Register{%endblock%}
+{%block content%}
+<h1>User Register</h1>
+<form action="" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="file" name="user_image" accept="image/*" required>
+    <input type="submit" value="Register">
+</form>
+{%endblock%}

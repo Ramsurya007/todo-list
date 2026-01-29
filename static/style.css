@@ -1,0 +1,200 @@
+:root {
+    --primary-color: #4a90e2;
+    --danger-color: #ff6b6b;
+    --success-color: #51cf66;
+    --warning-color: #fcc419;
+    --dark-bg: #333;
+    --light-bg: #f8f9fa;
+    --text-color: #333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    margin: 0;
+    color: var(--text-color);
+}
+
+nav {
+    background-color: var(--dark-bg);
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+h1 {
+    text-align: center;
+    margin: 30px 0;
+    color: var(--dark-bg);
+}
+
+.todo-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.todo-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.todo-item:hover {
+    transform: translateY(-2px);
+}
+
+.todo-item.completed {
+    background-color: #f1f3f5;
+    opacity: 0.8;
+}
+
+.todo-item.completed h3 {
+    text-decoration: line-through;
+    color: #868e96;
+}
+
+.todo-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+}
+
+.todo-content p {
+    margin: 0 0 5px 0;
+    color: #495057;
+}
+
+.todo-content small {
+    color: #adb5bd;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s;
+    color: white;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #357abd;
+}
+
+.btn-complete {
+    background-color: var(--success-color);
+}
+
+.btn-complete:hover {
+    background-color: #40c057;
+}
+
+.btn-edit {
+    background-color: var(--warning-color);
+    color: #333;
+}
+
+.btn-edit:hover {
+    background-color: #f0b400;
+}
+
+.btn-delete {
+    background-color: var(--danger-color);
+}
+
+.btn-delete:hover {
+    background-color: #fa5252;
+}
+
+.btn-restore {
+    background-color: var(--primary-color);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    background: #fff;
+    border-radius: 8px;
+    color: #868e96;
+}
+
+form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+form input[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+form input[type="submit"]:hover {
+    background-color: #357abd;
+}
